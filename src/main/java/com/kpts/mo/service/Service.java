@@ -1,6 +1,7 @@
 package com.kpts.mo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -75,6 +76,17 @@ public class Service {
 		}
 		
 		return 0;
+	}
+
+	public Optional<User> getUser(String mobileNum) {
+		Optional<User> user = userRepository.findById(mobileNum);
+		
+		if(user.isPresent())
+		{
+			return user;
+		}
+			
+		return null;
 	}
 
 }

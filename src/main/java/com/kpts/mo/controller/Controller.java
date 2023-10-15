@@ -1,9 +1,11 @@
 package com.kpts.mo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,6 +49,12 @@ public class Controller {
 	public int createNewUser(@RequestParam String mobile,@RequestParam String name)
 	{
 		return service.createNewUser(mobile,name);
+	}
+	
+	@GetMapping("/users/{mobileNum}")
+	public Optional<User> getUser(@PathVariable String mobileNum)
+	{
+		return service.getUser(mobileNum);
 	}
 
 }
