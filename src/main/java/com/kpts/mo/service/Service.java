@@ -88,6 +88,17 @@ public class Service {
 			
 		return null;
 	}
+
+	public int deleteWord(long id) {
+	Optional<Words> wordId = wordsRepository.findById(id);
+	
+		if(wordId.isPresent())
+		{
+			wordsRepository.deleteById(id);
+			return 1;
+		}
+		return 0;
+	}
 	
 	//justa  random comment
 
