@@ -53,7 +53,7 @@ public class Controller {
 	}
 	
 	@GetMapping("/users/{mobileNum}")
-	public Optional<User> getUser(@PathVariable String mobileNum)
+	public User getUser(@PathVariable String mobileNum)
 	{
 		return service.getUser(mobileNum);
 	}

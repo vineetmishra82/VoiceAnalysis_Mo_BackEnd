@@ -78,15 +78,17 @@ public class Service {
 		return 0;
 	}
 
-	public Optional<User> getUser(String mobileNum) {
-		Optional<User> user = userRepository.findById(mobileNum);
+	public User getUser(String mobileNum) {
+		User user = null;
 		
-		if(user.isPresent())
-		{
-			return user;
+		for (User currentUser : userRepository.findAll()) {
+			if(currentUser.getMobileNum().equals(mobileNum))
+			{
+				user = currentUser;
+			}
 		}
-			
-		return null;
+		
+		return user;
 	}
 
 	public int deleteWord(long id) {
